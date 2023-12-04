@@ -34,7 +34,7 @@ services:
       - THREAD_COUNT=3
       - TEST_SUITE=vendor-portal.xml
     volumes:
-      - C:\Users\rabib\VolumeSharing\output\vendor-portal:/home/selenium-docker/test-output
+      - ./Users/rabib/VolumeSharing/output/vendor-portal:/home/selenium-docker/test-output
   flight-reservation:
     image: rabib1515/selenium
     depends_on:
@@ -45,6 +45,6 @@ services:
       - THREAD_COUNT=4
       - TEST_SUITE=flight-reservation.xml
     volumes:
-      - C:\Users\rabib\VolumeSharing\output\flight-reservation:/home/selenium-docker/test-output
+      - ./Users/rabib/VolumeSharing/output/flight-reservation:/home/selenium-docker/test-output
 
 
