@@ -4,11 +4,17 @@ pipeline{
 
     stages {
 
-        stage('Run Test') {
+        stage('start grid') {
             steps {
-                bat 'docker-compose up'
+                bat 'docker-compose -f grid.yaml up'
             }
         }
+
+        stage('start test') {
+                    steps {
+                        bat 'docker-compose up'
+                    }
+                }
 
         stage('Bring grid down') {
             steps {
