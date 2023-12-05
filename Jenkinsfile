@@ -16,7 +16,12 @@ pipeline{
 
         stage('Run Test'){
             steps{
-                bat "docker-compose -f test-suites.yaml up"
+                bat "docker-compose -f test-suites.yaml up --pull=always"
+                script{
+                    if(fileExists('Users/rabib/VolumeSharing/output/vendor-portal/testng-failed.xml') || fileExists('Users/rabib/VolumeSharing/output/flight-reservation/testng-failed.xml')){
+                        error ('failed tests');
+                    }
+                }
             }
         }
 
